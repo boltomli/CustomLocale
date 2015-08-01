@@ -48,6 +48,10 @@ namespace CustomLocale
             {
                 // Register in current system to make it work.
                 builder.Register();
+
+                // Example to use the new culture through the name because all custom cultures share LCID 4096 (0x1000).
+                ci = new CultureInfo(cultureName);
+
                 string nlpFileName = cultureName + ".nlp";
                 string nlpFilePath = Path.Combine(Environment.GetEnvironmentVariable("WinDir"), "Globalization", nlpFileName);
                 if (File.Exists(nlpFilePath))
